@@ -1,8 +1,6 @@
 // @flow
-import '../../lib/users'
+import * as User from '../models/users'
 
-function read (req, res) {
-}
-
-function update (req, res) {
+export function read (req, res) {
+  res.end(JSON.stringify(User.getSingletonUser()))
 }
