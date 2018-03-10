@@ -18,4 +18,4 @@ app.post('/api/withdrawals', withdrawals.create)
 app.post('/api/buyOrders', buyOrders.create)
 app.post('/api/sellOrders', sellOrders.create)
 
-app.listen(3000)
+app.listen(process.env.PORT || 3000)
