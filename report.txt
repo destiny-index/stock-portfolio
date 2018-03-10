@@ -1,0 +1,30 @@
+1. Overall process
+  Decided to generate the Cash Balance from a list of transactions
+
+  Created two forms of transactions:
+    Depositing/Withdrawing money from the Cash Balance
+    Buying/Selling Stock Orders
+
+  Made the app server responsible for fetching the current price 
+  for building transactions involving Buying/Selling stock orders
+
+  Build the UI to Deposit/Withdraw Cash and Buy/Sell Stock Orders
+
+  Use Semantic UI to make the UI prettier
+
+2. Shortcuts, simplifying assumptions, known bugs, etc.
+  Assumed that one user would be enough for personal use
+  Skipped user login and authentication
+  Skipped form validation. e.g. It is possible to enter negative numbers
+
+3. What slowed you down, what was unexpected
+  Project Setup
+    Setting up webpack, babel, and eslint is as time consuming as always
+
+  Flow Types
+    Flow server would repeatedly stop responding
+
+4. Any problems you ran into
+  Starting the app server and webpack dev server from one 'npm start'
+    The solution was to start the both from a shell script and have
+    npm run that shell script
