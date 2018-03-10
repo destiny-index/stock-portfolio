@@ -6,7 +6,9 @@
     "start:client": "webpack-dev-server --config webpack.dev.js --open",
     "start:server": "nodemon server --exec babel-node",
     "start": "./start-all.sh",
-    "build": "babel --copy-files --source-maps true --out-dir dist server",
+    "build:client": "webpack -p --config webpack.base.js",
+    "build:server": "babel --copy-files --source-maps true --out-dir dist server",
+    "build": "./build-all.sh",
     "test": "jest"
   },
   "keywords": [],

@@ -1,6 +1,10 @@
 // @flow
 import * as User from '../models/users'
+import {getCurrentShareHoldings} from '../../lib/users'
 
 export function read (req, res) {
-  res.end(JSON.stringify(User.getSingletonUser()))
+  const user = User.getSingletonUser()
+  const shareHoldings = getCurrentShareHoldings(user)
+
+  res.end(JSON.stringify(user))
 }
