@@ -3,7 +3,12 @@ import React from 'react'
 import {Form} from 'semantic-ui-react'
 import axios from 'axios'
 
-type Props = { user: User, buttonText: string, apiEndPoint: string, updateUserFn: () => void }
+type Props = {
+  user: User,
+  buttonText: string,
+  apiEndPoint: string,
+  updateUserFn: () => void
+}
 type State = { amount: number }
 const initialState = { amount: '' }
 
