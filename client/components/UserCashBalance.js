@@ -2,6 +2,7 @@
 import React from 'react'
 import {getCurrentBalance} from '../../lib/users'
 import {Table} from 'semantic-ui-react'
+import type {User} from '../../lib/users'
 
 const UserCashBalance = ({user}: {user: User}) => (
   <Table collapsing basic='very'>

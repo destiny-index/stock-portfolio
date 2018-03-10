@@ -2,8 +2,14 @@
 import React from 'react'
 import axios from 'axios'
 import {Form} from 'semantic-ui-react'
+import type {User} from '../../lib/users'
 
-type Props = { user: User, buttonText: string, apiEndPoint: string, updateUserFn: () => void }
+type Props = {
+  user: User,
+  buttonText: string,
+  apiEndPoint: string,
+  updateUserFn: () => Promise<*>
+}
 type State = { equitySymbol: string, quantity: string }
 
 const initialState = { equitySymbol: '', quantity: '' }
@@ -11,7 +17,7 @@ const initialState = { equitySymbol: '', quantity: '' }
 class StockOrder extends React.Component<Props, State> {
   state = initialState
 
-  handleChange = (e, {name, value}) => {
+  handleChange = (e: mixed, {name, value}: {name: string, value: string}) => {
     this.setState({ [name]: value })
   }
 

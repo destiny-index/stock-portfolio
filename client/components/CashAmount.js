@@ -2,14 +2,15 @@
 import React from 'react'
 import {Form} from 'semantic-ui-react'
 import axios from 'axios'
+import type {User} from '../../lib/users'
 
 type Props = {
   user: User,
   buttonText: string,
   apiEndPoint: string,
-  updateUserFn: () => void
+  updateUserFn: () => Promise<*>
 }
-type State = { amount: number }
+type State = { amount: string }
 const initialState = { amount: '' }
 
 class CashAmount extends React.Component<Props, State> {
@@ -24,7 +25,7 @@ class CashAmount extends React.Component<Props, State> {
     }
   }
 
-  handleChange = (e, {value}) => {
+  handleChange = (e: mixed, {value}: {value: string}) => {
     this.setState({ amount: value })
   }
 

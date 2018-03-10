@@ -1,8 +1,9 @@
 // @flow
 import React from 'react'
 import CashAmount from './CashAmount'
+import type {User} from '../../lib/users'
 
-type Props = {user: User, updateUserFn: () => void}
+type Props = {user: User, updateUserFn: () => Promise<*>}
 const UserDepositCash = ({user, updateUserFn}: Props) => {
   return (
     <CashAmount

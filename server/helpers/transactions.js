@@ -2,14 +2,16 @@
 import * as User from '../models/users'
 import {fetchLivePrice} from '../../lib/stockOrders'
 
-export function createCashAmountTransactionWith (transactionCreator) {
+export function createCashAmountTransactionWith (transactionCreator: mixed => mixed) {
   return function (req, res) {
     const newTransaction = transactionCreator(req.body)
     updateAndRespondWithUpdate(newTransaction, res)
   }
 }
 
-export function createStockOrderTransactionWith (asyncTransactionCreator) {
+export function createStockOrderTransactionWith (
+  asyncTransactionCreator: (number, string => Promise<*>, string) => Promise<*>
+) {
   return async function (req, res) {
     const {quantity, equitySymbol} = req.body
     try {

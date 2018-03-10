@@ -5,7 +5,7 @@ import axios from 'axios'
 import UserProfile from './UserProfile'
 import type {User} from '../../lib/users'
 
-type State = { user: User }
+type State = { user: ?User }
 class App extends React.Component<*, State> {
   state = {
     user: null

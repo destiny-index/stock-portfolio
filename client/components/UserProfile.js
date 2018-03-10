@@ -36,7 +36,7 @@ const ShareHoldingsHeader = () => (
 
 type Props = {
   user: User,
-  updateUserFn: () => void
+  updateUserFn: () => Promise<*>
 }
 
 class UserProfile extends React.Component<Props> {
@@ -47,12 +47,12 @@ class UserProfile extends React.Component<Props> {
           <CashBalanceHeader />
           <UserDepositCash user={this.props.user} updateUserFn={this.props.updateUserFn} />
           <UserWithdrawCash user={this.props.user} updateUserFn={this.props.updateUserFn} />
-          <UserCashBalance user={this.props.user} updateUserFn={this.props.updateUserFn} />
+          <UserCashBalance user={this.props.user} />
 
           <ShareHoldingsHeader />
           <UserBuyOrder user={this.props.user} updateUserFn={this.props.updateUserFn} />
           <UserSellOrder user={this.props.user} updateUserFn={this.props.updateUserFn} />
-          <UserShareHoldings user={this.props.user} updateUserFn={this.props.updateUserFn} />
+          <UserShareHoldings user={this.props.user} />
         </Segment>
       </Container>
     )
