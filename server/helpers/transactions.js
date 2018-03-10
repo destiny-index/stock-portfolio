@@ -12,8 +12,12 @@ export function createCashAmountTransactionWith (transactionCreator) {
 export function createStockOrderTransactionWith (asyncTransactionCreator) {
   return async function (req, res) {
     const {quantity, equitySymbol} = req.body
-    const newTransaction = await asyncTransactionCreator(quantity, fetchLivePrice, equitySymbol)
-    updateAndRespondWithUpdate(await newTransaction, res)
+    try {
+      const newTransaction = await asyncTransactionCreator(quantity, fetchLivePrice, equitySymbol)
+      updateAndRespondWithUpdate(await newTransaction, res)
+    } catch (err) {
+      res.status(500).end(err.message)
+    }
   }
 }
 
