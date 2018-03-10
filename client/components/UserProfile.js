@@ -1,15 +1,27 @@
 // @flow
 import React from 'react'
+import {Container} from 'semantic-ui-react'
+
 import type {User} from '../../lib/users'
+import UserCashBalance from './UserCashBalance'
+import UserDepositCash from './UserDepositCash'
+import UserWithdrawCash from './UserWithdrawCash'
 
 type Props = {
-  user: User
+  user: User,
+  updateUserFn: () => void
 }
 
-const UserProfile = (props: Props) => (
-  <div>
-    <h1>UserProfile</h1>
-  </div>
-)
+class UserProfile extends React.Component<Props> {
+  render = () => {
+    return (
+      <Container>
+        <UserCashBalance user={this.props.user} updateUserFn={this.props.updateUserFn} />
+        <UserDepositCash user={this.props.user} updateUserFn={this.props.updateUserFn} />
+        <UserWithdrawCash user={this.props.user} updateUserFn={this.props.updateUserFn} />
+      </Container>
+    )
+  }
+}
 
 export default UserProfile

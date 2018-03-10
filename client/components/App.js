@@ -1,9 +1,30 @@
 // @flow
 import React from 'react'
-import UserProfile from './UserProfile'
+import axios from 'axios'
 
-const App = () => (
-  <UserProfile />
-)
+import UserProfile from './UserProfile'
+import type {User} from '../../lib/users'
+
+type State = { user: User }
+class App extends React.Component<*, State> {
+  state = {
+    user: null
+  }
+
+  updateUser = async () => {
+    const {data} = await axios.get('/api/users')
+    this.setState({ user: data })
+  }
+
+  componentDidMount = () => {
+    this.updateUser()
+  }
+
+  render = () => (
+    this.state.user != null
+      ? <UserProfile user={this.state.user} updateUserFn={this.updateUser} />
+      : null
+  )
+}
 
 export default App
