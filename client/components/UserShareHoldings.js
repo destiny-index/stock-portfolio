@@ -16,8 +16,12 @@ const UserShareHoldings = ({user}: Props) => {
     </Table.Row>
   )
 
+  if (!rows.length) {
+    return <strong>No share holdings...</strong>
+  }
+
   return (
-    <Table>
+    <Table basic='very' collapsing>
       <Table.Header>
         <Table.Row>
           <Table.HeaderCell>Equity</Table.HeaderCell>

@@ -1,12 +1,17 @@
 // @flow
 import React from 'react'
 import {getCurrentBalance} from '../../lib/users'
+import {Table} from 'semantic-ui-react'
 
 const UserCashBalance = ({user}: {user: User}) => (
-  <div>
-    <span>Current Cash Balance:</span>
-    <span>{getCurrentBalance(user)}</span>
-  </div>
+  <Table collapsing basic='very'>
+    <Table.Header>
+      <Table.Row>
+        <Table.HeaderCell>Total Balance:</Table.HeaderCell>
+        <Table.HeaderCell>${getCurrentBalance(user)}</Table.HeaderCell>
+      </Table.Row>
+    </Table.Header>
+  </Table>
 )
 
 export default UserCashBalance

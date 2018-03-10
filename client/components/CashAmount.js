@@ -38,6 +38,7 @@ class CashAmount extends React.Component<Props, State> {
           onChange={this.handleChange}
         />
         <Form.Button
+          style={{width: '10em'}}
           content={this.props.buttonText}
           onClick={this.handleClick}
         />
