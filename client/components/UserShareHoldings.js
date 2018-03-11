@@ -31,6 +31,14 @@ const UserShareHoldings = ({user}: Props) => {
       <Table.Body>
         {rows}
       </Table.Body>
+      { user.shareHoldingsValue != null &&
+      <Table.Footer>
+        <Table.Row>
+          <Table.HeaderCell>Live Total:</Table.HeaderCell>
+          <Table.HeaderCell>${user.shareHoldingsValue}</Table.HeaderCell>
+        </Table.Row>
+      </Table.Footer>
+      }
     </Table>
   )
 }
